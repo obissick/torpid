@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/{id}', 'HomeController@show')->name('show');
+Route::post('/date', 'HomeController@get_by_date')->name('by_date');
