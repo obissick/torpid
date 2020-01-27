@@ -8,18 +8,29 @@
         $( "#to" ).datetimepicker({ format: "yyyy-mm-dd HH:mm:ss" }).val();
     } );
 </script>
-<form autocomplete="off" action="{{route('by_date')}}" method="POST" novalidate="">
+<form autocomplete="off" action="{{route('filter')}}" method="POST" novalidate="">
     <div class="row">
         {{ csrf_field() }}
         <div class="row">
-            <div class="col-sm-5">
-                From: <input type="text" id="from" name="from" value="" />
+            <div class="col-sm">
+                From: <input type="text" id="from" name="from" />
             </div>
-            <div class="col-sm-5">
-                To: <input type="text" id="to"name="to" value="" />
+            <div class="col-sm">
+                To: <input type="text" id="to"name="to" />
             </div>
-            <div class="col-sm-4">
-
+            <div class="col-sm">
+                Limit: <input type="text" id="limit"name="limit" value="50"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                Host: 
+                <select id="host" name="host">
+                    <option></option>
+                    @foreach($hosts as $host)
+                        <option value="{{$host->hostname_max}}">{{$host->hostname_max}}</option>
+                    @endforeach
+                </select>
             </div>
         </div>
     </div>
