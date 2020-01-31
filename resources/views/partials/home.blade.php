@@ -11,32 +11,40 @@
 <form autocomplete="off" action="{{route('filter')}}" method="POST" novalidate="">
     <div class="row">
         {{ csrf_field() }}
-        <div class="row">
-            <div class="col-sm">
-                From: <input type="text" id="from" name="from" />
-            </div>
-            <div class="col-sm">
-                To: <input type="text" id="to"name="to" />
-            </div>
-            <div class="col-sm">
-                Limit: <input type="text" id="limit"name="limit" value="50"/>
-            </div>
+        <div class="col-sm-2">
+            From: <input type="text" id="from" name="from" />
         </div>
-        <div class="row">
-            <div class="col-sm-6">
-                Host: 
-                <select id="host" name="host">
-                    <option></option>
-                    @foreach($hosts as $host)
-                        <option value="{{$host->hostname_max}}">{{$host->hostname_max}}</option>
-                    @endforeach
-                </select>
-            </div>
+        <div class="col-sm-2">
+            To: <input type="text" id="to"name="to" />
+        </div>
+        <div class="col-sm-1">
+            Host: 
+            <select id="host" name="host">
+                <option></option>
+                @foreach($hosts as $host)
+                    <option value="{{$host->hostname_max}}">{{$host->hostname_max}}</option>
+                @endforeach
+            </select>
+        </div>
+        
+    </div>
+    <div class="row">
+        &nbsp;
+    </div>
+    <div class="row">
+        <div class="col-sm-2">
+            Order By: <input type="text" id="orderby"name="orderby" value=""/>
+        </div>
+        <div class="col-sm-2">
+            Limit: <input type="text" id="limit"name="limit" value="50"/>
         </div>
     </div>
     <div class="row" style="margin-top:10px">
         <button type="submit" class="btn btn-primary">Search</button>
     </div> 
+    <div class="row">
+        &nbsp;
+    </div>
 </form>
 <div class="row" style="margin-top:20px">
     <div class="table-responsive">
