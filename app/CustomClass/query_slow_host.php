@@ -25,7 +25,8 @@ class query_slow_host
             $results = Capsule::select("EXPLAIN ".$query);
             return $results;
         }catch (Exception $e){
-
+            report($e);
+            return false;
         }
         Capsule::disconnect();
     }

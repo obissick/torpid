@@ -91,7 +91,7 @@
 </div>
 <script>
     $(document).ready(function() {
-        var table = $('#queries').DataTable({"ordering": false});
+        var table = $('#queries').DataTable({"ordering": false, "pageLength": 50});
     } );
 </script>
 @endsection

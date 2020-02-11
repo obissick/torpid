@@ -13,4 +13,5 @@
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/query/{id}', 'HomeController@show')->name('show');
+Route::post('/query/{id}/comment', 'HomeController@comment')->name('comment');
 Route::post('/filter', 'HomeController@filter')->name('filter');
