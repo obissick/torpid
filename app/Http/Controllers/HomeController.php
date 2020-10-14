@@ -27,6 +27,27 @@ class HomeController extends Controller
         }catch(\Illuminate\Database\QueryException $ex){
             report($ex);
             $explainErr = $ex->getMessage();
+            $message = explode(' ', $ex->getMessage());
+            $dbCode = rtrim($message[1], ']');
+            $dbCode = trim($dbCode, '[');
+
+            // codes specific to MySQL
+            switch ($dbCode)
+            {
+                case 1049:
+                    $userMessage = 'Unknown database - probably config error:';
+                    break;
+                case 2002:
+                    $userMessage = 'Unable to connect to host.';
+                    break;
+                case 42000:
+                    $userMessage = 'Syntax error, probably trying to explain an unexplainable query. haha';
+                    break;
+                default:
+                    $userMessage = 'Untrapped Error:';
+                    break;
+            }
+            $explainErr = $userMessage;
             return view('partials.query', compact('results', 'comment', 'explainErr'));
         }
     }

@@ -1,12 +1,14 @@
 @extends('welcome')
 @section('content')
 <script>
-    $( function() {
-        $( "#from" ).datetimepicker({ format: "yyyy-mm-dd HH:mm:ss" }).val();    
-    } );
-    $( function() {    
-        $( "#to" ).datetimepicker({ format: "yyyy-mm-dd HH:mm:ss" }).val();
-    } );
+     $(document).ready(function () {
+        $( function() {
+            $( "#from" ).datetimepicker({ format: "yyyy-mm-dd HH:mm:ss" }).val();    
+        } );
+        $( function() {    
+            $( "#to" ).datetimepicker({ format: "yyyy-mm-dd HH:mm:ss" }).val();
+        } );
+    });
 </script>
 <form autocomplete="off" action="{{route('filter')}}" method="POST" novalidate="">
     <div class="row">

@@ -99,7 +99,7 @@
                 </div>
                 <div class="card-body">
                     @if ($explainErr)
-                        {{$explainErr}}
+                        {{$explainErr}}    
                     @else
                         <table class="table table-responsive" id="">
                             <thead>
